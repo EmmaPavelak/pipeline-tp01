@@ -27,8 +27,8 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Curl
         run: |
-          response = $(curl -I https://www.google.com)
-          if [ response -eq 200 ]; then
+          response = $(curl --write-out '{%http_code}' https://www.google.com)
+          if [[ response -eq 200 ]]; then
             echo "Success"
           else
             echo "Failed"
