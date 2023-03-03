@@ -1,0 +1,27 @@
+name: ESLint Tests
+
+on:
+  push:
+    branches: [ main, dev ]
+  pull_request:
+    branches: [ main, dev ]
+
+jobs:
+  eslint:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [14.x]
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v2
+      with:s
+        node-version: ${{ matrix.node-version }}
+: npm install
+
+    - name: Curl
+      run: npm run curl -sL https://www.youtube.com/
+     
